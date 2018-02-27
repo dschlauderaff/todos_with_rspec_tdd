@@ -1,7 +1,7 @@
 class CompletionsController < ApplicationController
   def create
     #finds the current user's todo and uses #touch to update the timestamp from nil to Time.now
-    todo.touch :completed_at
+    todo.complete!
     redirect_to todos_path
   end
 
