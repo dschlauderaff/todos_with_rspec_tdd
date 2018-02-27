@@ -22,3 +22,15 @@ describe Todo, '#complete!' do
     expect(todo).to be_completed
   end
 end
+
+describe Todo, '#set_incomplete' do
+  it 'sets the completed_at value to nil' do
+    todo = Todo.create!(completed_at: Time.current)
+
+    todo.set_incomplete
+
+    todo.reload
+
+    expect(todo).not_to be_completed
+  end
+end
