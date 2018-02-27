@@ -2,13 +2,11 @@ require 'rails_helper'
 
 feature "User creates a todo" do
   scenario "succesfully" do
-    sign_in    
-    
-    click_on "Add a new todo"
-    fill_in 'todo[title]', with: "This is a new todo"
-    click_on "Create Todo"
+    sign_in
 
-    expect(page).to have_css '.todos li', text: "This is a new todo"
+    create_todo 'This is a new todo'
+
+    expect(page).to display_todo 'This is a new todo'
 
   end
 end
